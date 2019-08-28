@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic Game</title>
+</head>
+<body>
+   <!--Create HTML to Display Results-->
+    <h1 id="displayText"> Press any key to start!</h1>
+   
+   <p>Wins: <span id="wins"> </span> </p>
+   <p>Losses: <span id="losses"></span></p>
+   <p>Guesses Left:<span id="guessLeft"></span></p>
+   <p>Guesses So Far:<span id="guessSoFar"></span></p>
+   
+   
+   
+   
+   <script>
+    
+    //create vars Wins, Losses, UserGuess,ComputerGuess, Computer choices//
+    var wins = 0;
+    var losses = 0;
+    var guessSoFar = [];
+    var guessLeft = 9;
+    var userGuess;
+    var computerGuess;
+    var computerChoices = ['a','b','c','d','e']; //put all letters// check in slack to shortcut //same thing in rock paper sicc game//
+    var displayText = "This is a Test" //changes heading//
+
+    
+    //create a function to display the results to the pg//
+    function updateDisplay(){
+    
+    document.querySelector("#displayText").innerHtml = displayText;
+    document.querySelector("#wins").innerHtml = wins;
+    document.querySelector("#losses").innerHtml = losses;
+    document.querySelector("#guessLeft").innerHtml = guessLeft;
+    document.querySelector("#guessSoFar").innerHtml = guessSoFar;
+    
+    };
+
+    updateDisplay();
+
+    //create a function to get a random letter from the computer// rock paper sic doc
+function computerRandomLetter(){
+computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
+}
+    //function to reset my scores
+
+function resetScores() {
+
+    guessLeft = 9;
+    guessSoFar = [];
+    }
+
+    computerRandomLetter()
+
+    console.log(computerGuess)
+
+    //create a onkey up event function to grab UserGuess
+    document.onkeyup =  function (event) {
+        
+        userGuess = event.key;
+
+        console.log(userGuess);
+
+     if(userGyess=ComputerGUess){
+        //win will go up 1//
+     }
+     else{ 
+//lose will go down 1//
+     }
+
+     if{
+         (guessleft=0);
+        resetScores()
+     }
+       updateDisplay();
+
+    }
+
+
+    </script>
+</body>
+</html>
