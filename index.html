@@ -66,21 +66,26 @@ function resetScores() {
         userGuess = event.key;
 
         console.log(userGuess);
+    }
 
-     if(userGyess=ComputerGUess){
+    
+    if(userGuess == computerGuess){
+          wins++;
+        
         //win will go up 1//
      }
-     else{ 
-//lose will go down 1//
+     else(userGuess !== computerGuess);{
+          losses++;
+      //lose will go down 1//
      }
 
-     if{
-         (guessleft=0);
+     if(guessleft = 0);{
         resetScores()
      }
+
        updateDisplay();
 
-    }
+    
 
 
     </script>
