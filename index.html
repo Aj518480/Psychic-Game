@@ -75,14 +75,19 @@ function resetScores() {
      
         //win will go up 1//
         //guesses go back to 9 to restart
+        //computer will generate another guess
+        //display should change to "you won!"
      }
      else(userGuess !== computerGuess);{
-          losses++;
           guessLeft--;
-      //lose will go down 1//
+          guessSoFar;
+       //guesses should be 1 less than it was
+        //user guess should show in guesses so far span
+        //once it gets down to 0 reset
+      //lose will go up 1//
      }
 
-     if(guessleft = 0);{
+     else if(guessleft = 0);{
         resetScores()
      }
 
