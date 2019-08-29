@@ -69,12 +69,15 @@ function resetScores() {
     }
 
     
-    if(userGuess == computerGuess){
-          wins++;
-        
+    if(userGuess === computerGuess){
+     wins++;
+     guessLeft = 9;
+     guessSoFar =
+     computerRandomLetter();
         //win will go up 1//
      }
      else(userGuess !== computerGuess);{
+
           losses++;
       //lose will go down 1//
      }
