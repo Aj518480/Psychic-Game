@@ -1,101 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
 </head>
+
 <body>
-   <!--Create HTML to Display Results-->
+    <!--Create HTML to Display Results-->
     <h1 id="displayText"> Press any key to start!</h1>
-   
-   <p>Wins: <span id="wins"> </span> </p>
-   <p>Losses: <span id="losses"></span></p>
-   <p>Guesses Left:<span id="guessLeft"></span></p>
-   <p>Guesses So Far:<span id="guessSoFar"></span></p>
-   
-   
-   
-   
-   <script>
-    
-    //create vars Wins, Losses, UserGuess,ComputerGuess, Computer choices//
-    var wins = 0;
-    var losses = 0;
-    var guessSoFar = [];
-    var guessLeft = 9;
-    var userGuess;
-    var computerGuess;
-    var computerChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; //put all letters//  
 
-    
-    //create a function to display the results to the pg//
-    function updateDisplay(){
-    
-    document.querySelector("#displayText").innerHtml = displayText;
-    document.querySelector("#wins").innerHtml = wins;
-    document.querySelector("#losses").innerHtml = losses;
-    document.querySelector("#guessLeft").innerHtml = guessLeft;
-    document.querySelector("#guessSoFar").innerHtml = guessSoFar;
-    
-    };
+    <p>Wins: <span id="wins"> </span> </p>
+    <p>Losses: <span id="losses"></span></p>
+    <p>Guesses Left:<span id="guessLeft"></span></p>
+    <p>Guesses So Far:<span id="guessSoFar"></span></p>
 
-    updateDisplay();
 
-    //create a function to get a random letter from the computer// rock paper sic doc
-function computerRandomLetter(){
-computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
-}
-    //function to reset my scores
 
-function resetScores() {
 
-    guessLeft = 9;
-    guessSoFar = [];
-    }
+    <script>
 
-    computerRandomLetter()
+        //create vars Wins, Losses, UserGuess,ComputerGuess, Computer choices//
+        var wins = 0;
+        var losses = 0;
+        var guessSoFar = [];
+        var guessLeft = 9;
+        var userGuess;
+        var computerGuess;
+        var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; //put all letters//  
+        var displayText;
 
-    console.log(computerGuess)
+        //create a function to display the results to the pg//
+        function updateDisplay() {
 
-    //create a onkey up event function to grab UserGuess
-    document.onkeyup =  function (event) {
-        
-        userGuess = event.key;
+            document.querySelector("#displayText").innerHtml = displayText;
+            document.querySelector("#wins").innerHtml = wins;
+            document.querySelector("#losses").innerHtml = losses;
+            document.querySelector("#guessLeft").innerHtml = guessLeft;
+            document.querySelector("#guessSoFar").innerHtml = guessSoFar;
 
-        console.log(userGuess);
-    }
+        };
 
-    
-    if(userGuess === computerGuess){
-     wins++;
-     resetScores();
-     computerRandomLetter();
-     
-        //win will go up 1//
-        //guesses go back to 9 to restart
-        //computer will generate another guess
-        //display should change to "you won!"
-     }
-     else(userGuess !== computerGuess);{
-          guessLeft--;
-          guessSoFar;
-       //guesses should be 1 less than it was
-        //user guess should show in guesses so far span
-        //once it gets down to 0 reset
-      //lose will go up 1//
-     }
+        updateDisplay();
 
-     else if(guessleft = 0);{
-        resetScores()
-     }
+        //create a function to get a random letter from the computer// rock paper sic doc
+        function computerRandomLetter() {
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        }
+        //function to reset my scores
 
-       updateDisplay();
+        function resetScores() {
 
-    
+            guessLeft = 9;
+            guessSoFar = [];
+        }
 
+        computerRandomLetter()
+
+        console.log(computerGuess)
+
+        //create a onkey up event function to grab UserGuess
+        document.onkeyup = function (event) {
+
+            userGuess = event.key;
+
+            console.log(userGuess);
+
+
+            guessSoFar.push(userGuess);
+            //userguesses are now being pushed into guessSofar
+
+
+            if (userGuess === computerGuess) {
+                wins++;
+                resetScores();
+                computerRandomLetter();
+                displayText = "hey you won!";
+                //win will go up 1//
+                //guesses go back to 9 to restart
+                //computer will generate another guess
+                //display should change to "you won!"
+            }
+            else if (userGuess !== computerGuess) {
+                guessLeft--;
+
+                //guesses should be 1 less than it was
+                //user guess should show in guesses so far span
+
+            }
+
+            if (guessleft === 0) {
+                resetScores()
+                losses++;
+                displayText = "you lost!";
+                computerRandomLetter();
+            }
+            //once it gets down to 0 reset
+            //lose will go up 1//
+
+            updateDisplay();
+
+
+        };
 
     </script>
 </body>
+
 </html>
