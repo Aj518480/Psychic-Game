@@ -10,7 +10,7 @@
 
 <body>
     <!--Create HTML to Display Results-->
-    <h1 id="displayText"> Press any key to start!</h1>
+    <h1 id="displayText"> </h1>
 
     <p>Wins: <span id="wins"> </span> </p>
     <p>Losses: <span id="losses"></span></p>
@@ -30,7 +30,7 @@
         var userGuess;
         var computerGuess;
         var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; //put all letters//  
-        var displayText;
+        var displayText = "Press any letter to start!";
 
         //create a function to display the results to the pg//
         function updateDisplay() {
@@ -52,7 +52,6 @@
         //function to reset my scores
 
         function resetScores() {
-
             guessLeft = 9;
             guessSoFar = [];
         }
@@ -77,8 +76,8 @@
                 wins++;
                 resetScores();
                 computerRandomLetter();
+                document.querySelector("#wins").innerHTML = wins;
                 displayText = "hey you won!";
-
                 updateDisplay();
                 //win will go up 1//
                 //guesses go back to 9 to restart
@@ -94,7 +93,7 @@
 
             }
 
-            else if (guessleft === 0) {
+            if (guessLeft === 0) {
                 resetScores()
                 losses++;
                 displayText = "you lost!";
