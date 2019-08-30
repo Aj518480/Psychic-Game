@@ -10,7 +10,7 @@
 
 <body>
     <!--Create HTML to Display Results-->
-    <h1 id="displayText"> Press any key to start!</h1>
+    <h1><span id="displayText"> Press any key to start!</span></h1>
 
     <p>Wins: <span id="wins"> </span> </p>
     <p>Losses: <span id="losses"></span></p>
@@ -35,11 +35,11 @@
         //create a function to display the results to the pg//
         function updateDisplay() {
 
-            document.querySelector("#displayText").innerHtml = displayText;
-            document.querySelector("#wins").innerHtml = wins;
-            document.querySelector("#losses").innerHtml = losses;
-            document.querySelector("#guessLeft").innerHtml = guessLeft;
-            document.querySelector("#guessSoFar").innerHtml = guessSoFar;
+            document.querySelector("#displayText").innerHTML = displayText;
+            document.querySelector("#wins").innerHTML = wins;
+            document.querySelector("#losses").innerHTML = losses;
+            document.querySelector("#guessLeft").innerHTML = guessLeft;
+            document.querySelector("#guessSoFar").innerHTML = guessSoFar;
 
         };
 
@@ -48,7 +48,7 @@
         //create a function to get a random letter from the computer// rock paper sic doc
         function computerRandomLetter() {
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        }
+        };
         //function to reset my scores
 
         function resetScores() {
@@ -78,24 +78,28 @@
                 resetScores();
                 computerRandomLetter();
                 displayText = "hey you won!";
+
+                updateDisplay();
                 //win will go up 1//
                 //guesses go back to 9 to restart
                 //computer will generate another guess
                 //display should change to "you won!"
             }
-            else if (userGuess !== computerGuess) {
+          if (userGuess !== computerGuess) {
                 guessLeft--;
-
+                guessSoFar.push(userGuess);
+                updateDisplay();
                 //guesses should be 1 less than it was
                 //user guess should show in guesses so far span
 
             }
 
-            if (guessleft === 0) {
+            else if (guessleft === 0) {
                 resetScores()
                 losses++;
                 displayText = "you lost!";
                 computerRandomLetter();
+                updateDisplay();
             }
             //once it gets down to 0 reset
             //lose will go up 1//
