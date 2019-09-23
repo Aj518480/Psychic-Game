@@ -6,16 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+    <!--My personal CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-    <!--Create HTML to Display Results-->
-    <h1 id="displayText"> </h1>
+    <!--containter for header for game-->
+    <div class="container mt-5">
 
-    <p>Wins: <span id="wins"> </span> </p>
-    <p>Losses: <span id="losses"></span></p>
-    <p>Guesses Left:<span id="guessLeft"></span></p>
-    <p>Guesses So Far:<span id="guessSoFar"></span></p>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <!--Create HTML to Display Results-->
+                <h1 id="displayText"> </h1>
+            </div>
+        </div>
+<br>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <p>Wins: <span id="wins"> </span> </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <p>Losses: <span id="losses"></span></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+            <p>Guesses Left:<span id="guessLeft"></span></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <p>Guesses So Far:<span id="guessSoFar"></span></p>
+        </div>
+    </div>
+
+
+    </div>
 
 
 
@@ -30,7 +74,7 @@
         var userGuess;
         var computerGuess;
         var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; //put all letters//  
-        var displayText = "Press any letter to start!";
+        var displayText = "Can you guess what letter I am thinking of??";
 
         //create a function to display the results to the pg//
         function updateDisplay() {
@@ -84,9 +128,8 @@
                 //computer will generate another guess
                 //display should change to "you won!"
             }
-          if (userGuess !== computerGuess) {
+            if (userGuess !== computerGuess) {
                 guessLeft--;
-                guessSoFar.push(userGuess);
                 updateDisplay();
                 //guesses should be 1 less than it was
                 //user guess should show in guesses so far span

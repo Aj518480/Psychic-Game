@@ -1,0 +1,13 @@
+body {
+   background-image: url(../images/riddler\ 2.jpg);
+  color:black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+
+}
+
+#displayText{
+  font-family: 'Mansalva', cursive;
+}
